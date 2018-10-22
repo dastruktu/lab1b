@@ -9,7 +9,7 @@
  * yra aptarti paslaitos metu. Realizuokite nurodytus metodus.
  *****************************************************************************
  */
-package studijosKTU;
+package edu.ktu.ds.lab1c.util;
 
 import java.util.Arrays;
 import java.util.Comparator;

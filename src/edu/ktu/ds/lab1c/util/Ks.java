@@ -5,7 +5,7 @@
  * Visi metodai yra statiniai ir skirti vienam duomenų tipui.
  * studentai savarankiškai paruošia metodus dėl short ir byte skaičių tipų.
   ****************************************************************************/
-package studijosKTU;
+package edu.ktu.ds.lab1c.util;
 
 import java.io.BufferedReader;
 import java.io.File;

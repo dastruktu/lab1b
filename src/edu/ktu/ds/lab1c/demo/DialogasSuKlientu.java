@@ -7,9 +7,10 @@
    *  PAPILDYKITE dialogą rikiavimo metodų bandymais
    *  GERESNIAM ĮSISAVINIMUI rekomenduojame pradėti nuo tuščios klasės
    ****************************************************************************/
-package Laboras2demo;
+package edu.ktu.ds.lab1c.demo;
+import edu.ktu.ds.lab1c.util.Ks;
+import edu.ktu.ds.lab1c.util.ListKTUx;
 import java.util.Locale;
-import studijosKTU.*;
 
 public class DialogasSuKlientu {
     AutomobiliuTurgus aTurgus = new AutomobiliuTurgus();

@@ -7,7 +7,7 @@
  * Užduotis: Peržiūrėkite ir išsiaiškinkite pateiktus metodus.
  * Metodų algoritmai yra aptarti paslaitos metu
  ******************************************************************************/
-package studijosKTU;
+package edu.ktu.ds.lab1c.util;
 
 import java.io.BufferedReader;
 import java.io.File;

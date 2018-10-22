@@ -8,13 +8,15 @@
    *  SUDARYKITE sąrašo peržiūros antišablono efektyvumo tyrimą.
    *  PASIRINKITE savo objektų klasę ir sudarykite jų generavimo metodą.
    ****************************************************************************/
-package Laboras2demo;
+package edu.ktu.ds.lab1c.demo;
 
+import edu.ktu.ds.lab1c.util.Timekeeper;
+import edu.ktu.ds.lab1c.util.Ks;
+import edu.ktu.ds.lab1c.util.ListKTU;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Locale;
 import java.util.Random;
-import studijosKTU.*;
 /*
  */
 public class GreitaveikosTyrimas {

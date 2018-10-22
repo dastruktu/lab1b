@@ -4,7 +4,7 @@
  * 
  * Užduotis: Peržiūrėkite ir išsiaiškinkite pateiktus metodus.
  ******************************************************************************/
-package studijosKTU;
+package edu.ktu.ds.lab1c.util;
 
 public class Timekeeper {
     int[] tyrimoImtis;

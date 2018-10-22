@@ -3,7 +3,7 @@
  * Tai yra  interfeisas, kurį turi tenkinti KTU studentų kuriamos duomenų klasės
  *       Metodai užtikrina patogų duomenų suformavimą iš String eilučių
  ******************************************************************************/
-package studijosKTU;
+package edu.ktu.ds.lab1c.util;
 
 public interface KTUable<T> extends Comparable<T> {
     KTUable create(String dataString); // sukuria naują objektą iš eilutės

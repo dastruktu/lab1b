@@ -6,10 +6,11 @@
    *  PASIRINKITE savo objektų klasę ir sudarykite analogiškus metodus
    *  GERESNIAM ĮSISAVINIMUI rekomenduojame pradėti nuo tuščios klasės
    ****************************************************************************/
-package Laboras2demo;
+package edu.ktu.ds.lab1c.demo;
+import edu.ktu.ds.lab1c.util.Ks;
+import edu.ktu.ds.lab1c.util.ListKTUx;
 import java.util.Comparator;
 import java.util.Locale;
-import studijosKTU.*;
 
 public class AutomobiliuBandymai{
     ListKTUx<Automobilis> bandomieji = new ListKTUx<>(new Automobilis());

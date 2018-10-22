@@ -4,9 +4,9 @@
    *  PASIRINKITE savo objektų klasę ir sudarykite analogiškus metodus
    *  GERESNIAM ĮSISAVINIMUI rekomenduojame pradėti nuo tuščios klasės
    ****************************************************************************/
-package Laboras2demo;
+package edu.ktu.ds.lab1c.demo;
 
-import studijosKTU.*;
+import edu.ktu.ds.lab1c.util.ListKTUx;
 
 public class AutomobiliuTurgus {
 

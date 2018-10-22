@@ -8,14 +8,15 @@
    *  GERESNIAM ĮSISAVINIMUI rekomenduojame pradėti nuo tuščios klasės
    ****************************************************************************/
 
-package Laboras2demo;
+package edu.ktu.ds.lab1c.demo;
+import edu.ktu.ds.lab1c.util.Ks;
+import edu.ktu.ds.lab1c.util.KTUable;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
-import studijosKTU.*;
 
 public class Automobilis implements KTUable<Automobilis> {
     

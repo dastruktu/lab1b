@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package paskaita;
+package edu.ktu.ds.lab1c.lecture;
 
-import studijosKTU.Ks;
-import studijosKTU.ListKTU;
+import edu.ktu.ds.lab1c.util.Ks;
+import edu.ktu.ds.lab1c.util.ListKTU;
 
 public class Žaidėjas implements Comparable<Žaidėjas> {
 
