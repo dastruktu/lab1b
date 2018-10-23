@@ -17,24 +17,14 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class ParsableList<E extends Parsable<E>> extends LinkedList<E>
-        implements Cloneable{
-    private E baseObj;       // bazinis objektas skirtas naujų kūrimui
+public abstract class ParsableList<E extends Parsable<E>> extends LinkedList<E> {
 
-    public ParsableList(E baseObj) {   // konstruktorius su bazinio objekto
-        this.baseObj = baseObj;    // fiksacija dėl naujų elementų kūrimo
-    }
     public void add(String dataString) {        // sukuria elementą iš String
-        add((E) baseObj.create(dataString)); // ir įdeda jį į pabaigą
+        add(createElement(dataString)); // ir įdeda jį į pabaigą
     }
     public void load(String fName) {//suformuoja sąrašą iš fName failo
         clear();
         if(fName.length()==0)return;
-        if(baseObj==null){          // elementų kūrimui reikalingas baseObj
-            Ks.ern("Naudojant load-metodą, "+
-                "reikia taikyti konstruktorių = new ListKTU(new Data())");
-            System.exit(0);
-        }
         try {
             (new File(Ks.getDataFolder())).mkdir();
             String fN = Ks.getDataFolder() + File.separatorChar + fName;
@@ -86,10 +76,6 @@ public class ParsableList<E extends Parsable<E>> extends LinkedList<E>
         println();
         Ks.oun("======== Sąrašo pabaiga =======");
     }
-    @Override
-    public ParsableList<E> clone(){
-       ParsableList<E> cl= (ParsableList<E>) super.clone();
-       cl.baseObj = this.baseObj;
-       return cl;
-    }
+    
+    protected abstract <E extends Parsable<E>> E createElement(String data);
 }

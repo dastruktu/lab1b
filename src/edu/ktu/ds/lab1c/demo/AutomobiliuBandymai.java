@@ -8,12 +8,11 @@
    ****************************************************************************/
 package edu.ktu.ds.lab1c.demo;
 import edu.ktu.ds.lab1c.util.Ks;
-import edu.ktu.ds.lab1c.util.ParsableList;
 import java.util.Comparator;
 import java.util.Locale;
 
 public class AutomobiliuBandymai{
-    ParsableList<Automobilis> bandomieji = new ParsableList<>(new Automobilis());
+    AutomobiliuSarasas bandomieji = new AutomobiliuSarasas();
 
     void metodoParinkimas(){
         tikrintiAtskirusAuto();
