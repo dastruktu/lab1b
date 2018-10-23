@@ -70,7 +70,6 @@ public class Automobilis implements Parsable<Automobilis> {
             Ks.ern("Trūksta duomenų apie auto -> " + dataString);
         }
     }
-    @Override
     public String validate() {
         String klaidosTipas = "";
         if (gamMetai < priimtinųMetųRiba || gamMetai > esamiMetai)

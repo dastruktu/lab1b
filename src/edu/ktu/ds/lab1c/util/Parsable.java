@@ -7,6 +7,5 @@ package edu.ktu.ds.lab1c.util;
 
 public interface Parsable<T> extends Comparable<T> {
     Parsable create(String dataString); // sukuria naują objektą iš eilutės
-    String validate();                 // patikrina objekto reikšmes
     void parse(String dataString);     // suformuoja objektą iš eilutės
 }
