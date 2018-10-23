@@ -12,7 +12,7 @@ package edu.ktu.ds.lab1c.demo;
 
 import edu.ktu.ds.lab1c.util.Timekeeper;
 import edu.ktu.ds.lab1c.util.Ks;
-import edu.ktu.ds.lab1c.util.ListKTU;
+import edu.ktu.ds.lab1c.util.LinkedList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Locale;
@@ -21,7 +21,7 @@ import java.util.Random;
  */
 public class GreitaveikosTyrimas {
     Automobilis[] autoBazė1;
-    ListKTU<Automobilis> aSeries = new ListKTU<>();
+    LinkedList<Automobilis> aSeries = new LinkedList<>();
     Random ag = new Random();  // atsitiktinių generatorius
     int[] tiriamiKiekiai = {2_000, 4_000, 8_000, 16_000};
 //    pabandykite, gal Jūsų kompiuteris įveiks šiuos eksperimentus
@@ -54,9 +54,9 @@ public class GreitaveikosTyrimas {
 // Paruošiamoji tyrimo dalis
         long t0=System.nanoTime();
         generuotiAutomobilius(elementųKiekis);
-        ListKTU<Automobilis> aSeries2 = aSeries.clone();
-        ListKTU<Automobilis> aSeries3 = aSeries.clone();
-        ListKTU<Automobilis> aSeries4 = aSeries.clone();
+        LinkedList<Automobilis> aSeries2 = aSeries.clone();
+        LinkedList<Automobilis> aSeries3 = aSeries.clone();
+        LinkedList<Automobilis> aSeries4 = aSeries.clone();
         long t1=System.nanoTime();
         System.gc(); System.gc(); System.gc();
         long t2=System.nanoTime();
@@ -79,9 +79,9 @@ public class GreitaveikosTyrimas {
         Timekeeper tk = new Timekeeper(tiriamiKiekiai);
         for (int kiekis : tiriamiKiekiai) {
            generuotiAutomobilius(kiekis);
-           ListKTU<Automobilis> aSeries2 = aSeries.clone();
-           ListKTU<Automobilis> aSeries3 = aSeries.clone();
-           ListKTU<Automobilis> aSeries4 = aSeries.clone();
+           LinkedList<Automobilis> aSeries2 = aSeries.clone();
+           LinkedList<Automobilis> aSeries3 = aSeries.clone();
+           LinkedList<Automobilis> aSeries4 = aSeries.clone();
 
     //  Greitaveikos bandymai ir laiko matavimai
             tk.start();

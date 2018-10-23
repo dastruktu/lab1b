@@ -17,11 +17,11 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-public class ListKTUx<E extends KTUable<E>> extends ListKTU<E>
+public class ParsableList<E extends Parsable<E>> extends LinkedList<E>
         implements Cloneable{
     private E baseObj;       // bazinis objektas skirtas naujų kūrimui
 
-    public ListKTUx(E baseObj) {   // konstruktorius su bazinio objekto
+    public ParsableList(E baseObj) {   // konstruktorius su bazinio objekto
         this.baseObj = baseObj;    // fiksacija dėl naujų elementų kūrimo
     }
     public void add(String dataString) {        // sukuria elementą iš String
@@ -61,7 +61,7 @@ public class ListKTUx<E extends KTUable<E>> extends ListKTU<E>
 
             String fN = Ks.getDataFolder() + File.separatorChar + fName;
             fWriter = new PrintWriter(new FileWriter (new File(fN)));
-            for (KTUable d1 = super.get(0); d1 != null; d1=super.getNext()) {
+            for (Parsable d1 = super.get(0); d1 != null; d1=super.getNext()) {
                 fWriter.println(d1.toString());
             }
             fWriter.close();
@@ -75,7 +75,7 @@ public class ListKTUx<E extends KTUable<E>> extends ListKTU<E>
         if (super.isEmpty()){
             Ks.oun("Sąrašas yra tuščias");
         }else
-           for (KTUable d1 = super.get(0); d1 != null; d1=super.getNext()) {
+           for (Parsable d1 = super.get(0); d1 != null; d1=super.getNext()) {
            String printData=String.format("%3d: %s ", eilNr++, d1.toString());
            Ks.oun (printData);
         }
@@ -87,8 +87,8 @@ public class ListKTUx<E extends KTUable<E>> extends ListKTU<E>
         Ks.oun("======== Sąrašo pabaiga =======");
     }
     @Override
-    public ListKTUx<E> clone(){
-       ListKTUx<E> cl= (ListKTUx<E>) super.clone();
+    public ParsableList<E> clone(){
+       ParsableList<E> cl= (ParsableList<E>) super.clone();
        cl.baseObj = this.baseObj;
        return cl;
     }

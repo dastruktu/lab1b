@@ -7,7 +7,7 @@
  * Užduotis: Peržiūrėkite ir išsiaiškinkite pateiktus metodus.
  ******************************************************************************/
 package edu.ktu.ds.lab1c.util;
-public interface ListADT<E> {
+public interface List<E> {
 
     /**
      * Appends the specified element to the end of this list.

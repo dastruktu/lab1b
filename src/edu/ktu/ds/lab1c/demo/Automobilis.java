@@ -10,15 +10,15 @@
 
 package edu.ktu.ds.lab1c.demo;
 import edu.ktu.ds.lab1c.util.Ks;
-import edu.ktu.ds.lab1c.util.KTUable;
 import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.InputMismatchException;
 import java.util.Locale;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
+import edu.ktu.ds.lab1c.util.Parsable;
 
-public class Automobilis implements KTUable<Automobilis> {
+public class Automobilis implements Parsable<Automobilis> {
     
     // bendri duomenys visiems automobiliams (visai klasei)
     final static private int priimtinųMetųRiba = 1994;

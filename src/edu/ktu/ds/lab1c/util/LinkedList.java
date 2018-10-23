@@ -20,8 +20,8 @@ import java.util.Iterator;
  * @author Aleksis
  * @param <E> Sąrašo elementų tipas (klasė)
  */
-public class ListKTU<E extends Comparable<E>>
-		implements ListADT<E>, Iterable<E>, Cloneable {
+public class LinkedList<E extends Comparable<E>>
+		implements List<E>, Iterable<E>, Cloneable {
 
 	private Node<E> first;   // rodyklė į pirmą mazgą
 	private Node<E> last;    // rodyklė į paskutinį mazgą
@@ -31,7 +31,7 @@ public class ListKTU<E extends Comparable<E>>
 	/**
 	 * Constructs an empty list.
 	 */
-	public ListKTU() {
+	public LinkedList() {
 	}
 
 	/**
@@ -164,10 +164,10 @@ public class ListKTU<E extends Comparable<E>>
 	 * @return sąrašo kopiją
 	 */
 	@Override
-	public ListKTU<E> clone() {
-		ListKTU<E> cl = null;
+	public LinkedList<E> clone() {
+		LinkedList<E> cl = null;
 		try {
-			cl = (ListKTU<E>) super.clone();
+			cl = (LinkedList<E>) super.clone();
 		} catch (CloneNotSupportedException e) {
 			Ks.ern("Blogai veikia ListKTU klasės protėvio metodas clone()");
 			System.exit(1);

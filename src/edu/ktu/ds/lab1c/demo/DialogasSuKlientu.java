@@ -9,14 +9,14 @@
    ****************************************************************************/
 package edu.ktu.ds.lab1c.demo;
 import edu.ktu.ds.lab1c.util.Ks;
-import edu.ktu.ds.lab1c.util.ListKTUx;
+import edu.ktu.ds.lab1c.util.ParsableList;
 import java.util.Locale;
 
 public class DialogasSuKlientu {
     AutomobiliuTurgus aTurgus = new AutomobiliuTurgus();
 
    void bendravimasSuKlientu() {
-      ListKTUx<Automobilis> atranka = null;
+      ParsableList<Automobilis> atranka = null;
       int varNr;  // skaičiavimo varijantas pasirenkamas nurodant jo numerį
       String dialogMeniu = "Pasirinkimas: "
             + "1-skaityti iš failo; 2-papildyti sąrašą; 3-naujų atranka;\n    "

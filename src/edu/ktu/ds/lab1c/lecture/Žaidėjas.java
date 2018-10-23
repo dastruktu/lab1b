@@ -6,7 +6,7 @@
 package edu.ktu.ds.lab1c.lecture;
 
 import edu.ktu.ds.lab1c.util.Ks;
-import edu.ktu.ds.lab1c.util.ListKTU;
+import edu.ktu.ds.lab1c.util.LinkedList;
 
 public class Žaidėjas implements Comparable<Žaidėjas> {
 
@@ -36,7 +36,7 @@ public class Žaidėjas implements Comparable<Žaidėjas> {
     }
 
     //=============================================
-    static ListKTU<Žaidėjas> komanda = new ListKTU<>();
+    static LinkedList<Žaidėjas> komanda = new LinkedList<>();
 
     static void žaidėjųSąrašoTestas() {
         Žaidėjas p1 = new Žaidėjas("Seibutis", 9, 9);
@@ -66,13 +66,13 @@ public class Žaidėjas implements Comparable<Žaidėjas> {
         Ks.oun(komanda.isEmpty() ? "nieko nėra" : "šiek tiek yra");
     }  // žaidėjųSąrašoTesto pabaiga
 
-    static void printListKTU(ListKTU<Žaidėjas> sąr) {
+    static void printListKTU(LinkedList<Žaidėjas> sąr) {
         for (Žaidėjas z = sąr.get(0); z != null; z = sąr.getNext()) {
             Ks.oun("Žaidėjas-> " + z);
         }
     } // ---------------------------------------------------------------
 
-    static void antiŠablonas(ListKTU<Žaidėjas> sąr) {
+    static void antiŠablonas(LinkedList<Žaidėjas> sąr) {
         for (int i = 0; i < sąr.size(); i++) {
             Ks.oun("Žaidėjas-> " + sąr.get(i));
         }
