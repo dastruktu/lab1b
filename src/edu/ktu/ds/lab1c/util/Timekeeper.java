@@ -6,6 +6,7 @@
  ***************************************************************************** */
 package edu.ktu.ds.lab1c.util;
 
+// todo remove
 public class Timekeeper {
 
     int[] tyrimoImtis;

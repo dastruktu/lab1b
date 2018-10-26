@@ -10,77 +10,77 @@ import edu.ktu.ds.lab1c.util.LinkedList;
 
 public class Player implements Comparable<Player> {
 
-    private String pavardė;
-    private int mesta;
-    private int pataikyta;
+    private String surname;
+    private int goalAttempts;
+    private int goals;
 
-    public Player(String pavardė, int mesta, int pataikyta) {
-        this.pavardė = pavardė;
-        this.mesta = mesta;
-        this.pataikyta = pataikyta;
+    public Player(String surname, int goalAttempts, int goals) {
+        this.surname = surname;
+        this.goalAttempts = goalAttempts;
+        this.goals = goals;
     }
 
     // ... geteriai ir seteriai 
-    public double tikslumas() {
-        return mesta == 0 ? 0.0 : 100.0 * pataikyta / mesta;
+    public double goalPercentage() {
+        return goalAttempts == 0 ? 0.0 : 100.0 * goals / goalAttempts;
     }
 
     @Override
-    public int compareTo(Player o) {
+    public int compareTo(Player other) {
         return 1;
     }
 
     @Override
     public String toString() {
-        return "pavardė=" + pavardė + ", mesta=" + mesta + ", pataikyta=" + pataikyta + "; ";
+        return "pavardė=" + surname + ", mesta=" + goalAttempts + ", pataikyta=" + goals + "; ";
     }
 
     //=============================================
-    static LinkedList<Player> komanda = new LinkedList<>();
+    static LinkedList<Player> team = new LinkedList<>();
 
-    static void žaidėjųSąrašoTestas() {
+    static void testPlayerList() {
         Player p1 = new Player("Seibutis", 9, 9);
         Player p2 = new Player("Mačiulis", 7, 8);
         Player p3 = new Player("Jankūnas", 6, 4);
-        komanda.add(p1);
-        komanda.add(p2);
-        komanda.add(p3);
-        Ks.oun("Komandos žaidėjų skaičius=" + komanda.size());
-        Ks.oun("Žaidėjai:\n" + komanda.get(0) + komanda.get(1) + komanda.get(2));
+        team.add(p1);
+        team.add(p2);
+        team.add(p3);
+        Ks.oun("Komandos žaidėjų skaičius=" + team.size());
+        Ks.oun("Žaidėjai:\n" + team.get(0) + team.get(1) + team.get(2));
         //-------------------
-        Ks.oun("Žaidėjas(0)=" + komanda.get(0));
-        Ks.oun("Žaidėjas(1)=" + komanda.get(1));
-        Ks.oun("Žaidėjas(2)=" + komanda.get(2));
-        komanda.add(new Player("Gailius", 0, 0));
-        komanda.add(new Player("Javtokas", 3, 0));
-        Ks.oun("Žaidėjas(3)=" + komanda.get(3));
-        Ks.oun("Žaidėjas(4)=" + komanda.get(4));
-        Ks.oun("Komandos žaidėjų skaičius=" + komanda.size());
+        Ks.oun("Žaidėjas(0)=" + team.get(0));
+        Ks.oun("Žaidėjas(1)=" + team.get(1));
+        Ks.oun("Žaidėjas(2)=" + team.get(2));
+        team.add(new Player("Gailius", 0, 0));
+        team.add(new Player("Javtokas", 3, 0));
+        Ks.oun("Žaidėjas(3)=" + team.get(3));
+        Ks.oun("Žaidėjas(4)=" + team.get(4));
+        Ks.oun("Komandos žaidėjų skaičius=" + team.size());
         //------------------
-        p1 = komanda.get(3);  // Gailius ...
-        p2 = komanda.get(4);  // Javtokas ...
-        p3 = komanda.get(5);  // planuojame gauti null
+        p1 = team.get(3);  // Gailius ...
+        p2 = team.get(4);  // Javtokas ...
+        p3 = team.get(5);  // planuojame gauti null
         Ks.oun("Rinkinys:\n" + p1 + "\n" + p2 + "\n" + p3);
-        Ks.oun(komanda.isEmpty() ? "nieko nėra" : "šiek tiek yra");
-        komanda.clear();
-        Ks.oun(komanda.isEmpty() ? "nieko nėra" : "šiek tiek yra");
+        Ks.oun(team.isEmpty() ? "nieko nėra" : "šiek tiek yra");
+        team.clear();
+        Ks.oun(team.isEmpty() ? "nieko nėra" : "šiek tiek yra");
     }  // žaidėjųSąrašoTesto pabaiga
 
-    static void printListKTU(LinkedList<Player> sąr) {
-        for (Player z = sąr.get(0); z != null; z = sąr.getNext()) {
-            Ks.oun("Žaidėjas-> " + z);
+    static void printPlayers(LinkedList<Player> players) {
+        for (Player p = players.get(0); p != null; p = players.getNext()) {
+            Ks.oun("Žaidėjas-> " + p);
         }
     } // ---------------------------------------------------------------
 
-    static void antiŠablonas(LinkedList<Player> sąr) {
-        for (int i = 0; i < sąr.size(); i++) {
-            Ks.oun("Žaidėjas-> " + sąr.get(i));
+    static void antipattern(LinkedList<Player> players) {
+        for (int i = 0; i < players.size(); i++) {
+            Ks.oun("Žaidėjas-> " + players.get(i));
         }
     } // ---------------------------------------------------------------
 
     public static void main(String[] args) {
-        žaidėjųSąrašoTestas();
-        printListKTU(komanda);
-        antiŠablonas(komanda);
+        testPlayerList();
+        printPlayers(team);
+        antipattern(team);
     }
 }

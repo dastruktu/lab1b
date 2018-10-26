@@ -11,11 +11,11 @@ import edu.ktu.ds.lab1c.util.ParsableList;
  *
  * @author giepaul
  */
-public class AutomobiliuSarasas extends ParsableList<Automobilis> {
+public class CarList extends ParsableList<Car> {
 
     @Override
-    protected Automobilis createElement(String data) {
-        return new Automobilis(data);
+    protected Car createElement(String data) {
+        return new Car(data);
     }
 
 }

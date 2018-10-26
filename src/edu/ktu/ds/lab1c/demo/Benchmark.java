@@ -20,18 +20,18 @@ import java.util.Random;
 
 /*
  */
-public class GreitaveikosTyrimas {
+public class Benchmark {
 
-    Automobilis[] autoBazė1;
-    LinkedList<Automobilis> aSeries = new LinkedList<>();
-    Random ag = new Random();  // atsitiktinių generatorius
-    int[] tiriamiKiekiai = {2_000, 4_000, 8_000, 16_000};
+    Car[] cars;
+    LinkedList<Car> carSeries = new LinkedList<>();
+    Random rg = new Random();  // atsitiktinių generatorius
+    int[] counts = {2_000, 4_000, 8_000, 16_000};
 //    pabandykite, gal Jūsų kompiuteris įveiks šiuos eksperimentus
 //    paieškokite ekstremalaus apkrovimo be burbuliuko metodo
-//    static int[] tiriamiKiekiai = {10_000, 20_000, 40_000, 80_000};
+//    static int[] counts = {10_000, 20_000, 40_000, 80_000};
 
-    void generuotiAutomobilius(int kiekis) {
-        String[][] am = { // galimų automobilių markių ir jų modelių masyvas
+    void generateCars(int count) {
+        String[][] makesAndModels = { // galimų automobilių markių ir jų modelių masyvas
             {"Mazda", "121", "323", "626", "MX6"},
             {"Ford", "Fiesta", "Escort", "Focus", "Sierra", "Mondeo"},
             {"Saab", "92", "96"},
@@ -39,80 +39,80 @@ public class GreitaveikosTyrimas {
             {"Renault", "Laguna", "Megane", "Twingo", "Scenic"},
             {"Peugeot", "206", "207", "307"}
         };
-        autoBazė1 = new Automobilis[kiekis];
-        ag.setSeed(2017);
-        for (int i = 0; i < kiekis; i++) {
-            int ma = ag.nextInt(am.length);        // markės indeksas  0..
-            int mo = ag.nextInt(am[ma].length - 1) + 1;// modelio indeksas 1..
-            autoBazė1[i] = new Automobilis(am[ma][0], am[ma][mo],
-                    1994 + ag.nextInt(20), // metai tarp 1994 ir 2013
-                    6000 + ag.nextInt(222_000), // rida tarp 6000 ir 228000
-                    1000 + ag.nextDouble() * 350_000); // kaina tarp 1000 ir 351_000
+        cars = new Car[count];
+        rg.setSeed(2017);
+        for (int i = 0; i < count; i++) {
+            int makeIndex = rg.nextInt(makesAndModels.length);        // markės indeksas  0..
+            int modelIndex = rg.nextInt(makesAndModels[makeIndex].length - 1) + 1;// modelio indeksas 1..
+            cars[i] = new Car(makesAndModels[makeIndex][0], makesAndModels[makeIndex][modelIndex],
+                    1994 + rg.nextInt(20), // metai tarp 1994 ir 2013
+                    6000 + rg.nextInt(222_000), // rida tarp 6000 ir 228000
+                    1000 + rg.nextDouble() * 350_000); // kaina tarp 1000 ir 351_000
         }
-        Collections.shuffle(Arrays.asList(autoBazė1));
-        aSeries.clear();
-        for (Automobilis a : autoBazė1) {
-            aSeries.add(a);
+        Collections.shuffle(Arrays.asList(cars));
+        carSeries.clear();
+        for (Car c : cars) {
+            carSeries.add(c);
         }
     }
 
-    void paprastasTyrimas(int elementųKiekis) {
+    void simpleRun(int elementCount) {
 // Paruošiamoji tyrimo dalis
         long t0 = System.nanoTime();
-        generuotiAutomobilius(elementųKiekis);
-        LinkedList<Automobilis> aSeries2 = aSeries.clone();
-        LinkedList<Automobilis> aSeries3 = aSeries.clone();
-        LinkedList<Automobilis> aSeries4 = aSeries.clone();
+        generateCars(elementCount);
+        LinkedList<Car> carSeries2 = carSeries.clone();
+        LinkedList<Car> carSeries3 = carSeries.clone();
+        LinkedList<Car> carSeries4 = carSeries.clone();
         long t1 = System.nanoTime();
         System.gc();
         System.gc();
         System.gc();
         long t2 = System.nanoTime();
 //  Greitaveikos bandymai ir laiko matavimai
-        aSeries.sortSystem();
+        carSeries.sortSystem();
         long t3 = System.nanoTime();
-        aSeries2.sortSystem(Automobilis.pagalKainą);
+        carSeries2.sortSystem(Car.byPrice);
         long t4 = System.nanoTime();
-        aSeries3.sortBuble();
+        carSeries3.sortBuble();
         long t5 = System.nanoTime();
-        aSeries4.sortBuble(Automobilis.pagalKainą);
+        carSeries4.sortBuble(Car.byPrice);
         long t6 = System.nanoTime();
-        Ks.ouf("%7d %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f \n", elementųKiekis,
+        Ks.ouf("%7d %7.4f %7.4f %7.4f %7.4f %7.4f %7.4f \n", elementCount,
                 (t1 - t0) / 1e9, (t2 - t1) / 1e9, (t3 - t2) / 1e9,
                 (t4 - t3) / 1e9, (t5 - t4) / 1e9, (t6 - t5) / 1e9);
     }
 // sekančio tyrimo metu gaunama normalizuoti įvertinimai su klase TimeKeeper
 
-    void sisteminisTyrimas() {
+    void systemicRun() {
         // Paruošiamoji tyrimo dalis
-        Timekeeper tk = new Timekeeper(tiriamiKiekiai);
-        for (int kiekis : tiriamiKiekiai) {
-            generuotiAutomobilius(kiekis);
-            LinkedList<Automobilis> aSeries2 = aSeries.clone();
-            LinkedList<Automobilis> aSeries3 = aSeries.clone();
-            LinkedList<Automobilis> aSeries4 = aSeries.clone();
+        Timekeeper tk = new Timekeeper(counts);
+        for (int count : counts) {
+            generateCars(count);
+            LinkedList<Car> carSeries2 = carSeries.clone();
+            LinkedList<Car> carSeries3 = carSeries.clone();
+            LinkedList<Car> carSeries4 = carSeries.clone();
 
             //  Greitaveikos bandymai ir laiko matavimai
             tk.start();
-            aSeries.sortSystem();
+            carSeries.sortSystem();
             tk.finish("SysBeCom");
-            aSeries2.sortSystem(Automobilis.pagalKainą);
+            carSeries2.sortSystem(Car.byPrice);
             tk.finish("SysSuCom");
-            aSeries3.sortBuble();
+            carSeries3.sortBuble();
             tk.finish("BurBeCom");
-            aSeries4.sortBuble(Automobilis.pagalKainą);
+            carSeries4.sortBuble(Car.byPrice);
             tk.finish("BurSuCom");
             tk.seriesFinish();
         }
     }
 
-    void tyrimoPasirinkimas() {
+    void run() {
         long memTotal = Runtime.getRuntime().totalMemory();
         Ks.oun("memTotal= " + memTotal);
         // Pasižiūrime kaip generuoja automobilius (20) vienetų)
-        generuotiAutomobilius(20);
-        for (Automobilis a : aSeries) {
-            Ks.oun(a);
+        generateCars(20);
+        for (Car c : carSeries) {
+            Ks.oun(c);
         }
         Ks.oun("1 - Pasiruošimas tyrimui - duomenų generavimas");
         Ks.oun("2 - Pasiruošimas tyrimui - šiukšlių surinkimas");
@@ -121,16 +121,16 @@ public class GreitaveikosTyrimas {
         Ks.oun("5 - Rūšiavimas List burbuliuku be Comparator");
         Ks.oun("6 - Rūšiavimas List burbuliuku su Comparator");
         Ks.ouf("%6d %7d %7d %7d %7d %7d %7d \n", 0, 1, 2, 3, 4, 5, 6);
-        for (int n : tiriamiKiekiai) {
-            paprastasTyrimas(n);
+        for (int n : counts) {
+            simpleRun(n);
         }
         // sekančio tyrimo metu gaunama normalizuoti įvertinimai
-        sisteminisTyrimas();
+        systemicRun();
     }
 
     public static void main(String[] args) {
         // suvienodiname skaičių formatus pagal LT lokalę (10-ainis kablelis)
         Locale.setDefault(new Locale("LT"));
-        new GreitaveikosTyrimas().tyrimoPasirinkimas();
+        new Benchmark().run();
     }
 }
