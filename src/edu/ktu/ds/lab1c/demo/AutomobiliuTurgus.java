@@ -1,4 +1,4 @@
- /*
+/*
  * Tai yra automobilių sąrašų kūrimo ir tolimesnių taikomųjų veiksmų klasė.
    *  IŠSIAIŠKINKITE metodų sudarymą, jų paskirtį.
    *  PASIRINKITE savo objektų klasę ir sudarykite analogiškus metodus
@@ -23,6 +23,7 @@ public class AutomobiliuTurgus {
         }
         return naujiAuto;
     }
+
     // suformuojamas sąrašas automobilių, kurių kaina yra tarp ribų
     public AutomobiliuSarasas atrinktiPagalKainą(int riba1, int riba2) {
         AutomobiliuSarasas vidutiniaiAuto = new AutomobiliuSarasas();
@@ -33,6 +34,7 @@ public class AutomobiliuTurgus {
         }
         return vidutiniaiAuto;
     }
+
     // suformuojamas sąrašas automobilių, turinčių max kainą
     public AutomobiliuSarasas maksimaliosKainosAuto() {
         AutomobiliuSarasas brangiausiAuto = new AutomobiliuSarasas();
@@ -50,6 +52,7 @@ public class AutomobiliuTurgus {
         }
         return brangiausiAuto;
     }
+
     // suformuojams sąrašas automobilių, kurių modelio kodas atitinka nurodytą
     public AutomobiliuSarasas atrinktiMarkęModelį(String modelioKodas) {
         AutomobiliuSarasas firminiaiAuto = new AutomobiliuSarasas();

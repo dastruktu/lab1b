@@ -4,7 +4,7 @@
  * efektyviam rezultatų pateikimui į sout ir serr srautus.
  * Visi metodai yra statiniai ir skirti vienam duomenų tipui.
  * studentai savarankiškai paruošia metodus dėl short ir byte skaičių tipų.
-  ****************************************************************************/
+ *************************************************************************** */
 package edu.ktu.ds.lab1c.util;
 
 import java.io.BufferedReader;
@@ -16,11 +16,11 @@ import java.util.Arrays;
 
 public class Ks { // KTU system - imituojama Javos System klasė
 
-    private static final BufferedReader keyboard =
-            new BufferedReader(new InputStreamReader(System.in));
+    private static final BufferedReader keyboard
+            = new BufferedReader(new InputStreamReader(System.in));
     private static String dataFolderKTU = "Duomenys";
 
-    static public String giveString(String prompt){
+    static public String giveString(String prompt) {
         Ks.ou(prompt);
         try {
             return keyboard.readLine();
@@ -30,78 +30,94 @@ public class Ks { // KTU system - imituojama Javos System klasė
         }
         return "";
     }
+
     static public long giveLong(String prompt) {
-      while(true){
-        String s=giveString(prompt);
-        try {
-            return Long.parseLong(s);
-        } catch (NumberFormatException e) {
-            Ks.ern("Neteisingas skaičiaus formatas, pakartokite");
+        while (true) {
+            String s = giveString(prompt);
+            try {
+                return Long.parseLong(s);
+            } catch (NumberFormatException e) {
+                Ks.ern("Neteisingas skaičiaus formatas, pakartokite");
+            }
         }
-      }
     }
+
     static public long giveLong(String prompt, long bound1, long bound2) {
-      while(true){
-        long a=giveLong(prompt+" tarp ribų ["+bound1+":"+bound2+"]=");
-          if (a<bound1)
-            Ks.ern("Skaičius mažesnis nei leistina, pakartokite");
-          else if (a>bound2)
-            Ks.ern("Skaičius didesnis nei leistina, pakartokite");
-          else return a;
-      }
-    }
-    static public int giveInt(String prompt){
-      while(true){
-        long a=giveLong(prompt);
-          if (a<Integer.MIN_VALUE)
-            Ks.ern("Skaičius mažesnis nei Integer.MIN_VALUE"+
-                       ", pakartokite");
-          else if (a>Integer.MAX_VALUE)
-            Ks.ern("Skaičius didesnis nei Integer.MAX_VALUE"+
-                       ", pakartokite");
-          else return (int)a;
-      }
-    }
-    static public int giveInt(String prompt, int bound1, int bound2){
-        return (int)giveLong(prompt,bound1,bound2);
-    }
-    static public double giveDouble(String prompt) {
-      while(true){
-        String s=giveString(prompt);
-        try {
-            return Double.parseDouble(s);
-        } catch (NumberFormatException e) {
-            if(s.contains(","))
-                Ks.ern("Vietoje kablelio naudokite tašką"+
-                        ", pakartokite");
-            else
-                Ks.ern("Neteisingas skaičiaus formatas"+
-                        ", pakartokite");
+        while (true) {
+            long a = giveLong(prompt + " tarp ribų [" + bound1 + ":" + bound2 + "]=");
+            if (a < bound1) {
+                Ks.ern("Skaičius mažesnis nei leistina, pakartokite");
+            } else if (a > bound2) {
+                Ks.ern("Skaičius didesnis nei leistina, pakartokite");
+            } else {
+                return a;
+            }
         }
-      }
     }
-    static public double giveDouble(String prompt,double bound1,double bound2){
-      while(true){
-        double a=giveDouble(prompt+" tarp ribų ["+bound1+":"+bound2+"]=");
-        if (a<bound1)
-           Ks.ern("Skaičius mažesnis nei leistina, pakartokite");
-          else if (a>bound2)
-           Ks.ern("Skaičius didesnis nei leistina, pakartokite");
-        else return a;
-      }
+
+    static public int giveInt(String prompt) {
+        while (true) {
+            long a = giveLong(prompt);
+            if (a < Integer.MIN_VALUE) {
+                Ks.ern("Skaičius mažesnis nei Integer.MIN_VALUE"
+                        + ", pakartokite");
+            } else if (a > Integer.MAX_VALUE) {
+                Ks.ern("Skaičius didesnis nei Integer.MAX_VALUE"
+                        + ", pakartokite");
+            } else {
+                return (int) a;
+            }
+        }
     }
-    static public String giveFileName(){
-       File dir= new File(dataFolderKTU);
-       dir.mkdir();
-       oun("Jums prieinami failai "+Arrays.toString(dir.list()));
-       String fn=giveString("Nurodykite pasirinktą duomenų failo vardą: ");
-       return(fn);
+
+    static public int giveInt(String prompt, int bound1, int bound2) {
+        return (int) giveLong(prompt, bound1, bound2);
     }
-    static public String getDataFolder(){
-       return dataFolderKTU;
+
+    static public double giveDouble(String prompt) {
+        while (true) {
+            String s = giveString(prompt);
+            try {
+                return Double.parseDouble(s);
+            } catch (NumberFormatException e) {
+                if (s.contains(",")) {
+                    Ks.ern("Vietoje kablelio naudokite tašką"
+                            + ", pakartokite");
+                } else {
+                    Ks.ern("Neteisingas skaičiaus formatas"
+                            + ", pakartokite");
+                }
+            }
+        }
     }
-    static public void setDataFolder(String folderName){
-       dataFolderKTU = folderName;
+
+    static public double giveDouble(String prompt, double bound1, double bound2) {
+        while (true) {
+            double a = giveDouble(prompt + " tarp ribų [" + bound1 + ":" + bound2 + "]=");
+            if (a < bound1) {
+                Ks.ern("Skaičius mažesnis nei leistina, pakartokite");
+            } else if (a > bound2) {
+                Ks.ern("Skaičius didesnis nei leistina, pakartokite");
+            } else {
+                return a;
+            }
+        }
+    }
+
+    static public String giveFileName() {
+        File dir = new File(dataFolderKTU);
+        dir.mkdir();
+        oun("Jums prieinami failai " + Arrays.toString(dir.list()));
+        String fn = giveString("Nurodykite pasirinktą duomenų failo vardą: ");
+        return (fn);
+    }
+
+    static public String getDataFolder() {
+        return dataFolderKTU;
+    }
+
+    static public void setDataFolder(String folderName) {
+        dataFolderKTU = folderName;
     }
 
     private static final PrintStream sout = System.out;
@@ -109,26 +125,36 @@ public class Ks { // KTU system - imituojama Javos System klasė
     private static int lineNr;
     private static int errorNr;
     private static final boolean formatStartOfLine = true;
-    static public void ou(Object obj){
-       if(formatStartOfLine)
+
+    static public void ou(Object obj) {
+        if (formatStartOfLine) {
             sout.printf("%2d| %s", ++lineNr, obj);
-       else sout.println(obj);
+        } else {
+            sout.println(obj);
+        }
     }
-    static public void oun(Object obj){
-       if(formatStartOfLine)
+
+    static public void oun(Object obj) {
+        if (formatStartOfLine) {
             sout.printf("%2d| %s\n", ++lineNr, obj);
-       else sout.println(obj);
+        } else {
+            sout.println(obj);
+        }
     }
-    static public void ouf(String format, Object... args){
-       sout.printf(format, args);
+
+    static public void ouf(String format, Object... args) {
+        sout.printf(format, args);
     }
-    static public void er(Object obj){
-       serr.printf("***Klaida %d: %s", ++errorNr, obj);
+
+    static public void er(Object obj) {
+        serr.printf("***Klaida %d: %s", ++errorNr, obj);
     }
-    static public void ern(Object obj){
-       serr.printf("***Klaida %d: %s\n", ++errorNr, obj);
+
+    static public void ern(Object obj) {
+        serr.printf("***Klaida %d: %s\n", ++errorNr, obj);
     }
-    static public void erf(String format, Object... args){
-       serr.printf(format, args);
+
+    static public void erf(String format, Object... args) {
+        serr.printf(format, args);
     }
 }

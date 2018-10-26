@@ -2,19 +2,21 @@
  *
  * Tai yra demonstracinė Automobilio bandymų klasė, kuri skirta tiesiog
  * veiksmų su sąrašais išbandymui
-   *  IŠSIAIŠKINKITE metodų sudarymą, jų paskirtį.
-   *  PASIRINKITE savo objektų klasę ir sudarykite analogiškus metodus
-   *  GERESNIAM ĮSISAVINIMUI rekomenduojame pradėti nuo tuščios klasės
-   ****************************************************************************/
+ *  IŠSIAIŠKINKITE metodų sudarymą, jų paskirtį.
+ *  PASIRINKITE savo objektų klasę ir sudarykite analogiškus metodus
+ *  GERESNIAM ĮSISAVINIMUI rekomenduojame pradėti nuo tuščios klasės
+ *************************************************************************** */
 package edu.ktu.ds.lab1c.demo;
+
 import edu.ktu.ds.lab1c.util.Ks;
 import java.util.Comparator;
 import java.util.Locale;
 
-public class AutomobiliuBandymai{
+public class AutomobiliuBandymai {
+
     AutomobiliuSarasas bandomieji = new AutomobiliuSarasas();
 
-    void metodoParinkimas(){
+    void metodoParinkimas() {
         tikrintiAtskirusAuto();
         formuotiAutoSąrašą();
 //        peržiūrėtiSąrašą();
@@ -24,9 +26,9 @@ public class AutomobiliuBandymai{
     }
 
     void tikrintiAtskirusAuto() {
-        Automobilis a1 = new Automobilis("Renault","Laguna",1997,50000,1700);
-        Automobilis a2 = new Automobilis("Renault","Megane",2001,20000,3500);
-        Automobilis a3 = new Automobilis("Toyota","Corolla",2001,20000,8500.8);
+        Automobilis a1 = new Automobilis("Renault", "Laguna", 1997, 50000, 1700);
+        Automobilis a2 = new Automobilis("Renault", "Megane", 2001, 20000, 3500);
+        Automobilis a3 = new Automobilis("Toyota", "Corolla", 2001, 20000, 8500.8);
         Automobilis a4 = new Automobilis();
         Automobilis a5 = new Automobilis();
         Automobilis a6 = new Automobilis();
@@ -37,18 +39,19 @@ public class AutomobiliuBandymai{
         Ks.oun(a1);
         Ks.oun(a2);
         Ks.oun(a3);
-        Ks.oun("Pirmų 3 auto ridos vidurkis= "+
-                (a1.getRida()+a2.getRida()+a3.getRida())/3);
+        Ks.oun("Pirmų 3 auto ridos vidurkis= "
+                + (a1.getRida() + a2.getRida() + a3.getRida()) / 3);
         Ks.oun(a4);
         Ks.oun(a5);
         Ks.oun(a6);
-        Ks.oun("Kitų 3 auto kainų suma= "+
-                (a4.getKaina()+a5.getKaina()+a6.getKaina()));
+        Ks.oun("Kitų 3 auto kainų suma= "
+                + (a4.getKaina() + a5.getKaina() + a6.getKaina()));
     }
+
     void formuotiAutoSąrašą() {
-        Automobilis a1 = new Automobilis("Renault","Laguna",1997,50000,1700);
-        Automobilis a2 = new Automobilis("Renault","Megane",2001,20000,3500);
-        Automobilis a3 = new Automobilis("Toyota","Corolla",2001,20000,8500.8);
+        Automobilis a1 = new Automobilis("Renault", "Laguna", 1997, 50000, 1700);
+        Automobilis a2 = new Automobilis("Renault", "Megane", 2001, 20000, 3500);
+        Automobilis a3 = new Automobilis("Toyota", "Corolla", 2001, 20000, 8500.8);
         bandomieji.add(a1);
         bandomieji.add(a2);
         bandomieji.add(a3);
@@ -59,13 +62,13 @@ public class AutomobiliuBandymai{
 
         bandomieji.println("Visi 6 auto");
         bandomieji.forEach(System.out::println);
-        Ks.oun("Pirmų 3 auto ridos vidurkis= "+
-                (bandomieji.get(0).getRida()+bandomieji.get(1).getRida()+
-                 bandomieji.get(2).getRida())/3);
+        Ks.oun("Pirmų 3 auto ridos vidurkis= "
+                + (bandomieji.get(0).getRida() + bandomieji.get(1).getRida()
+                + bandomieji.get(2).getRida()) / 3);
 
-        Ks.oun("Kitų 3 auto kainų suma= "+
-                (bandomieji.get(3).getKaina()+bandomieji.get(4).getKaina()+
-                 bandomieji.get(5).getKaina()));
+        Ks.oun("Kitų 3 auto kainų suma= "
+                + (bandomieji.get(3).getKaina() + bandomieji.get(4).getKaina()
+                + bandomieji.get(5).getKaina()));
         // palaipsniui atidenkite sekančias eilutes ir išbandykite
 //        bandomieji.add(0, new Automobilis("Mazda","6",2007,50000,27000));
 //        bandomieji.add(6, new Automobilis("Hyundai","Lantra",1998,9500,777));
@@ -79,19 +82,22 @@ public class AutomobiliuBandymai{
 //        bandomieji.println("Po visų išmetimų");
 //        bandomieji.remove(0);
 //        bandomieji.println("Po visų išmetimų");
-   }
-    void peržiūrėtiSąrašą(){
-        int sk=0;
-        for (Automobilis a: bandomieji){
-            if (a.getMarkė().compareTo("Renault")==0)
-                sk++;
-        }
-        Ks.oun("Renault automobilių yra = "+sk);
     }
-    void papildytiSąrašą(){
-        for (int i=0; i<8; i++){
+
+    void peržiūrėtiSąrašą() {
+        int sk = 0;
+        for (Automobilis a : bandomieji) {
+            if (a.getMarkė().compareTo("Renault") == 0) {
+                sk++;
+            }
+        }
+        Ks.oun("Renault automobilių yra = " + sk);
+    }
+
+    void papildytiSąrašą() {
+        for (int i = 0; i < 8; i++) {
             bandomieji.add(new Automobilis("Ford", "Focus",
-                    2009-i, 40000+i*10000, 36000-i*2000));
+                    2009 - i, 40000 + i * 10000, 36000 - i * 2000));
         }
         bandomieji.add("Ford Mondeo  2009 37000 36000.0");
         bandomieji.add("Fiat Bravo   2008 27000 32500,0");
@@ -100,9 +106,10 @@ public class AutomobiliuBandymai{
         bandomieji.println("Testuojamų automobilių sąrašas");
         bandomieji.save("ban.txt");
     }
-    void patikrintiTurgausApskaitą(){
+
+    void patikrintiTurgausApskaitą() {
         AutomobiliuTurgus aTurgus = new AutomobiliuTurgus();
-        
+
         aTurgus.visiAuto.load("ban.txt");
         aTurgus.visiAuto.println("Bandomasis rinkinys");
 
@@ -121,18 +128,19 @@ public class AutomobiliuBandymai{
         bandomieji = aTurgus.atrinktiMarkęModelį("Ford M");
 
         bandomieji.println("Turi būti tik Ford Mondeo");
-        int sk=0;
-        for (Automobilis a: bandomieji){
-                sk++;    // testuojame ciklo veikimą
+        int sk = 0;
+        for (Automobilis a : bandomieji) {
+            sk++;    // testuojame ciklo veikimą
         }
-        Ks.oun("Ford Mondeo kiekis = "+sk);
+        Ks.oun("Ford Mondeo kiekis = " + sk);
     }
+
     // išbandykite veikimą, o po to pakeiskite į Lambda stiliaus komparatorius.
-    void patikrintiRikiavimą(){
+    void patikrintiRikiavimą() {
         AutomobiliuTurgus aps = new AutomobiliuTurgus();
 
         aps.visiAuto.load("ban.txt");
-        Ks.oun("========"+aps.visiAuto.get(0));
+        Ks.oun("========" + aps.visiAuto.get(0));
         aps.visiAuto.println("Bandomasis rinkinys");
         aps.visiAuto.sortBuble(Automobilis.pagalMarkęModelį);
         aps.visiAuto.println("Rūšiavimas pagal Markę ir Modelį");
@@ -153,13 +161,18 @@ public class AutomobiliuBandymai{
             int r1 = ((Automobilis) o1).getRida();
             int r2 = ((Automobilis) o2).getRida();
             // rida atvirkščia mažėjančia tvarka, pradedant nuo didžiausios
-            if(r1<r2) return 1;
-            if(r1>r2) return -1;
+            if (r1 < r2) {
+                return 1;
+            }
+            if (r1 > r2) {
+                return -1;
+            }
             return 0;
         }
     };
+
     public static void main(String... args) {
-          // suvienodiname skaičių formatus pagal LT lokalę (10-ainis kablelis)
+        // suvienodiname skaičių formatus pagal LT lokalę (10-ainis kablelis)
         Locale.setDefault(new Locale("LT"));
         new AutomobiliuBandymai().metodoParinkimas();
     }

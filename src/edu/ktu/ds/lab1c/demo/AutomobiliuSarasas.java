@@ -17,5 +17,5 @@ public class AutomobiliuSarasas extends ParsableList<Automobilis> {
     protected Automobilis createElement(String data) {
         return new Automobilis(data);
     }
-    
+
 }
