@@ -34,18 +34,17 @@ public class CarMarket {
         return cars;
     }
 
-    // todo blogai su double tipo kaina
-    // suformuojamas sąrašas automobilių, turinčių max kainą
-    public CarList getMostExpensiveCars() {
+    // suformuojamas sąrašas automobilių, turinčių didžiausią ridą
+    public CarList getHighestMileageCars() {
         CarList cars = new CarList();
         // formuojamas sąrašas su maksimalia reikšme vienos peržiūros metu
-        double maxPrice = 0;
+        double maxMileage = 0;
         for (Car c : allCars) {
-            double price = c.getPrice();
-            if (price >= maxPrice) {
-                if (price > maxPrice) {
+            double mileage = c.getMileage();
+            if (mileage >= maxMileage) {
+                if (mileage > maxMileage) {
                     cars.clear();
-                    maxPrice = price;
+                    maxMileage = mileage;
                 }
                 cars.add(c);
             }

@@ -119,8 +119,8 @@ public class CarTest {
         cars = market.getByPrice(3000, 10000);
         cars.println("Kaina tarp 3000 ir 10000");
 
-        cars = market.getMostExpensiveCars();
-        cars.println("Patys brangiausi");
+        cars = market.getHighestMileageCars();
+        cars.println("Daugiausiai nuvažiavę");
 
         cars = market.getByMakeAndModel("F");
         cars.println("Turi būti tik Fiatai ir Fordai");

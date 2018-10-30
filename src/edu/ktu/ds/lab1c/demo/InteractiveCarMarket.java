@@ -22,8 +22,8 @@ public class InteractiveCarMarket {
         int choice;  // skaičiavimo variantas pasirenkamas nurodant jo numerį
         String dialogMenu = "Pasirinkimas: "
                 + "1-skaityti iš failo; 2-papildyti sąrašą; 3-naujų atranka;\n    "
-                + "4-atranka pagal kainą; 5-brangiausi auto; 6-pagal markę;\n    "
-                + "0-baigti skaičiavimus > ";
+                + "4-atranka pagal kainą; 5-daugiausiai nuvažiavę auto;\n    "
+                + "6-pagal markę; 0-baigti skaičiavimus > ";
         while ((choice = Ks.giveInt(dialogMenu, 0, 6)) != 0) {
             if (choice == 1) {
                 carMarket.allCars.load(Ks.giveFileName());
@@ -53,7 +53,7 @@ public class InteractiveCarMarket {
                             selectedCars = carMarket.getByPrice(fromYear, toYear);
                             break;
                         case 5:
-                            selectedCars = carMarket.getMostExpensiveCars();
+                            selectedCars = carMarket.getHighestMileageCars();
                             break;
                         case 6:
                             String makeAndModel = Ks.giveString("Nurodykite norimą markę ir "
