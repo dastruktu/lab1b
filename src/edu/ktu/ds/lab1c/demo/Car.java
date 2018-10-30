@@ -23,7 +23,6 @@ public class Car implements Parsable<Car> {
 
     // bendri duomenys visiems automobiliams (visai klasei)
     final static private int minYear = 1994;
-    final static private int currentYear = LocalDate.now().getYear();
 
     final static private double minPrice = 200.0;
     final static private double maxPrice = 120_000.0;
@@ -76,6 +75,7 @@ public class Car implements Parsable<Car> {
 
     public String validate() {
         String error = "";
+        int currentYear = LocalDate.now().getYear();
         if (year < minYear || year > currentYear) {
             error = "Netinkami gamybos metai, turi būti ["
                     + minYear + ":" + currentYear + "]";
