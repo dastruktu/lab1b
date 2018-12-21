@@ -31,9 +31,9 @@
 package edu.ktu.ds.lab1c.benchmark;
 
 import edu.ktu.ds.lab1c.demo.Car;
+import edu.ktu.ds.lab1c.demo.CarList;
 import edu.ktu.ds.lab1c.util.Ks;
 import edu.ktu.ds.lab1c.util.LinkedList;
-import java.util.Random;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Level;
@@ -55,74 +55,51 @@ public class SpeedBenchmark {
         @Param({"2000", "4000", "8000", "16000"})
         public int count;
 
-        volatile LinkedList<Car> carList = new LinkedList<>();
+        volatile LinkedList<Car> list = new LinkedList<>();
 
         @Setup(Level.Iteration)
         public void generate() {
-            carList = generateRandomCars(count);
+            list = new CarList(count);
         }
     }
 
     @State(Scope.Thread)
     public static class ClonedCars {
 
-        volatile LinkedList<Car> carList = new LinkedList<>();
+        volatile LinkedList<Car> list = new LinkedList<>();
 
         @Setup(Level.Invocation)
         public void copy(GeneratedCars original) {
-            this.carList = original.carList.clone();
+            this.list = original.list.clone();
         }
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
-    public void defaultSort(ClonedCars list) throws InterruptedException {
-        list.carList.sortSystem();
+    public void defaultSort(ClonedCars cars) throws InterruptedException {
+        cars.list.sortSystem();
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
-    public void defaultsortWithComparator(ClonedCars list) throws InterruptedException {
-        list.carList.sortSystem(Car.byPrice);
+    public void defaultsortWithComparator(ClonedCars cars) throws InterruptedException {
+        cars.list.sortSystem(Car.byPrice);
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
-    public void bubbleSort(ClonedCars list) throws InterruptedException {
-        list.carList.sortBuble();
+    public void bubbleSort(ClonedCars cars) throws InterruptedException {
+        cars.list.sortBuble();
     }
 
     @Benchmark
     @BenchmarkMode(Mode.AverageTime)
-    public void bubbleSortWithComparator(ClonedCars list) throws InterruptedException {
-        list.carList.sortBuble(Car.byPrice);
+    public void bubbleSortWithComparator(ClonedCars cars) throws InterruptedException {
+        cars.list.sortBuble(Car.byPrice);
     }
 
-    private static LinkedList<Car> generateRandomCars(int count) {
-            String[][] makesAndModels = {
-                {"Mazda", "121", "323", "626", "MX6"},
-                {"Ford", "Fiesta", "Escort", "Focus", "Sierra", "Mondeo"},
-                {"Saab", "92", "96"},
-                {"Honda", "Accord", "Civic", "Jazz"},
-                {"Renault", "Laguna", "Megane", "Twingo", "Scenic"},
-                {"Peugeot", "206", "207", "307"}
-            };
-            Random rnd = new Random();
-            rnd.setSeed(2017);
-            LinkedList<Car> cars = new LinkedList<>();
-            for (int i = 0; i < count; i++) {
-                int makeIndex = rnd.nextInt(makesAndModels.length);
-                int modelIndex = rnd.nextInt(makesAndModels[makeIndex].length - 1) + 1;
-                cars.add(new Car(makesAndModels[makeIndex][0], makesAndModels[makeIndex][modelIndex],
-                        1994 + rnd.nextInt(20),
-                        6000 + rnd.nextInt(222_000),
-                        1000 + rnd.nextDouble() * 100_000));
-            }
-            return cars;
-    }
-    
     private static void testCarGeneration(int count) {
-        for (Car car : generateRandomCars(count)) {
+        for (Car car : new CarList(count)) {
             Ks.oun(car);
         }
     }
