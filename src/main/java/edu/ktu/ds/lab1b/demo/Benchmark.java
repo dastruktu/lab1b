@@ -10,7 +10,6 @@
  *************************************************************************** */
 package edu.ktu.ds.lab1b.demo;
 
-import edu.ktu.ds.lab1b.util.Timekeeper;
 import edu.ktu.ds.lab1b.util.Ks;
 import edu.ktu.ds.lab1b.util.LinkedList;
 import java.util.Arrays;
@@ -81,30 +80,6 @@ public class Benchmark {
                 (t1 - t0) / 1e9, (t2 - t1) / 1e9, (t3 - t2) / 1e9,
                 (t4 - t3) / 1e9, (t5 - t4) / 1e9, (t6 - t5) / 1e9);
     }
-// sekančio tyrimo metu gaunama normalizuoti įvertinimai su klase TimeKeeper
-
-    void systemicRun() {
-        // Paruošiamoji tyrimo dalis
-        Timekeeper tk = new Timekeeper(counts);
-        for (int count : counts) {
-            generateCars(count);
-            LinkedList<Car> carSeries2 = carSeries.clone();
-            LinkedList<Car> carSeries3 = carSeries.clone();
-            LinkedList<Car> carSeries4 = carSeries.clone();
-
-            //  Greitaveikos bandymai ir laiko matavimai
-            tk.start();
-            carSeries.sortSystem();
-            tk.finish("SysBeCom");
-            carSeries2.sortSystem(Car.byPrice);
-            tk.finish("SysSuCom");
-            carSeries3.sortBuble();
-            tk.finish("BurBeCom");
-            carSeries4.sortBuble(Car.byPrice);
-            tk.finish("BurSuCom");
-            tk.seriesFinish();
-        }
-    }
 
     void run() {
         long memTotal = Runtime.getRuntime().totalMemory();
@@ -124,8 +99,6 @@ public class Benchmark {
         for (int n : counts) {
             simpleRun(n);
         }
-        // sekančio tyrimo metu gaunama normalizuoti įvertinimai
-        systemicRun();
     }
 
     public static void main(String[] args) {
