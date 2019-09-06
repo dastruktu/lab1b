@@ -8,7 +8,7 @@
  * yra aptarti paslaitos metu
  *****************************************************************************
  */
-package edu.ktu.ds.lab1c.util;
+package edu.ktu.ds.lab1b.util;
 
 import java.io.BufferedReader;
 import java.io.File;

@@ -4,7 +4,7 @@
  *
  * Užduotis: Peržiūrėkite ir išsiaiškinkite pateiktus metodus.
  ***************************************************************************** */
-package edu.ktu.ds.lab1c.util;
+package edu.ktu.ds.lab1b.util;
 
 // todo remove
 public class Timekeeper {

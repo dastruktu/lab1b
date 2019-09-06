@@ -6,9 +6,9 @@
  *  PASIRINKITE savo objektų klasę ir sudarykite analogiškus metodus
  *  GERESNIAM ĮSISAVINIMUI rekomenduojame pradėti nuo tuščios klasės
  *************************************************************************** */
-package edu.ktu.ds.lab1c.demo;
+package edu.ktu.ds.lab1b.demo;
 
-import edu.ktu.ds.lab1c.util.Ks;
+import edu.ktu.ds.lab1b.util.Ks;
 import java.util.Comparator;
 import java.util.Locale;
 

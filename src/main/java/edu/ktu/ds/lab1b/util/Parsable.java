@@ -3,7 +3,7 @@
  * Tai yra  interfeisas, kurį turi tenkinti KTU studentų kuriamos duomenų klasės
  *       Metodai užtikrina patogų duomenų suformavimą iš String eilučių
  ***************************************************************************** */
-package edu.ktu.ds.lab1c.util;
+package edu.ktu.ds.lab1b.util;
 
 public interface Parsable<T> extends Comparable<T> {
 

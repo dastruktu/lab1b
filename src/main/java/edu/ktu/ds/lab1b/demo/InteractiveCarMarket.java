@@ -7,10 +7,10 @@
  *  PAPILDYKITE dialogą rikiavimo metodų bandymais
  *  GERESNIAM ĮSISAVINIMUI rekomenduojame pradėti nuo tuščios klasės
  *************************************************************************** */
-package edu.ktu.ds.lab1c.demo;
+package edu.ktu.ds.lab1b.demo;
 
-import edu.ktu.ds.lab1c.util.Ks;
-import edu.ktu.ds.lab1c.util.ParsableList;
+import edu.ktu.ds.lab1b.util.Ks;
+import edu.ktu.ds.lab1b.util.ParsableList;
 import java.util.Locale;
 
 public class InteractiveCarMarket {

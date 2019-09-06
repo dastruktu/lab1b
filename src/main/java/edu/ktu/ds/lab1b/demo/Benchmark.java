@@ -8,11 +8,11 @@
  *  SUDARYKITE sąrašo peržiūros antišablono efektyvumo tyrimą.
  *  PASIRINKITE savo objektų klasę ir sudarykite jų generavimo metodą.
  *************************************************************************** */
-package edu.ktu.ds.lab1c.demo;
+package edu.ktu.ds.lab1b.demo;
 
-import edu.ktu.ds.lab1c.util.Timekeeper;
-import edu.ktu.ds.lab1c.util.Ks;
-import edu.ktu.ds.lab1c.util.LinkedList;
+import edu.ktu.ds.lab1b.util.Timekeeper;
+import edu.ktu.ds.lab1b.util.Ks;
+import edu.ktu.ds.lab1b.util.LinkedList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Locale;

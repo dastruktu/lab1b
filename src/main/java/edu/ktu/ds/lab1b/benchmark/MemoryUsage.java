@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.ktu.ds.lab1c.benchmark;
+package edu.ktu.ds.lab1b.benchmark;
 
-import edu.ktu.ds.lab1c.demo.CarList;
+import edu.ktu.ds.lab1b.demo.CarList;
 import objectexplorer.MemoryMeasurer;
 import objectexplorer.ObjectGraphMeasurer;
 

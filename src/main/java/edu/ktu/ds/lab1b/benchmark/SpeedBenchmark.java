@@ -28,12 +28,12 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF
  * THE POSSIBILITY OF SUCH DAMAGE.
  */
-package edu.ktu.ds.lab1c.benchmark;
+package edu.ktu.ds.lab1b.benchmark;
 
-import edu.ktu.ds.lab1c.demo.Car;
-import edu.ktu.ds.lab1c.demo.CarList;
-import edu.ktu.ds.lab1c.util.Ks;
-import edu.ktu.ds.lab1c.util.LinkedList;
+import edu.ktu.ds.lab1b.demo.Car;
+import edu.ktu.ds.lab1b.demo.CarList;
+import edu.ktu.ds.lab1b.util.Ks;
+import edu.ktu.ds.lab1b.util.LinkedList;
 import org.openjdk.jmh.annotations.Benchmark;
 import org.openjdk.jmh.annotations.BenchmarkMode;
 import org.openjdk.jmh.annotations.Level;

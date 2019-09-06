@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.ktu.ds.lab1c.lecture;
+package edu.ktu.ds.lab1b.lecture;
 
-import edu.ktu.ds.lab1c.util.Ks;
-import edu.ktu.ds.lab1c.util.LinkedList;
+import edu.ktu.ds.lab1b.util.Ks;
+import edu.ktu.ds.lab1b.util.LinkedList;
 
 public class Player implements Comparable<Player> {
 

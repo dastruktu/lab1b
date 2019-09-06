@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package edu.ktu.ds.lab1c.demo;
+package edu.ktu.ds.lab1b.demo;
 
-import edu.ktu.ds.lab1c.util.ParsableList;
+import edu.ktu.ds.lab1b.util.ParsableList;
 import java.util.Random;
 
 /**
