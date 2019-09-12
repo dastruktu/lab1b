@@ -6,8 +6,6 @@
    ****************************************************************************/
 package edu.ktu.ds.lab1b.demo;
 
-import edu.ktu.ds.lab1b.util.ParsableList;
-
 public class CarMarket {
 
     public CarList allCars = new CarList();

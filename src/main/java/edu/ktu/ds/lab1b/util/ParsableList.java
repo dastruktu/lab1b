@@ -17,9 +17,19 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.function.Function;
 
-public abstract class ParsableList<E extends Parsable<E>> extends LinkedList<E> {
+public class ParsableList<E extends Parsable<E>> extends LinkedList<E> {
 
+    private Function<String, E> createFunction;
+
+    public ParsableList() {
+    }
+
+    public ParsableList(Function<String, E> createFunction) {
+        this.createFunction = createFunction;
+    }
+    
     public void add(String dataString) {        // sukuria elementą iš String
         add(createElement(dataString)); // ir įdeda jį į pabaigą
     }
@@ -87,5 +97,10 @@ public abstract class ParsableList<E extends Parsable<E>> extends LinkedList<E> 
         Ks.oun("======== Sąrašo pabaiga =======");
     }
 
-    protected abstract <E extends Parsable<E>> E createElement(String data);
+    protected E createElement(String data) {
+        if (createFunction == null) {
+            throw new IllegalStateException("Nenustatyta sąrašo elementų kūrimo funkcija");
+        }
+        return createFunction.apply(data);
+    }
 }

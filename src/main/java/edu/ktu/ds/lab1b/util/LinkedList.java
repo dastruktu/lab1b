@@ -13,7 +13,6 @@ package edu.ktu.ds.lab1b.util;
 
 import java.util.Arrays;
 import java.util.Comparator;
-import java.util.Iterator;
 
 /**
  * Koreguota 2015-09-18
@@ -289,18 +288,18 @@ public class LinkedList<E extends Comparable<E>>
      * @return iteratoriaus objektą
      */
     @Override
-    public Iterator<E> iterator() {
-        return new ListIteratorKTU();
+    public java.util.Iterator<E> iterator() {
+        return new Iterator();
     }
 
     /**
      * Iteratoriaus metodų klasė
      */
-    class ListIteratorKTU implements Iterator<E> {
+    class Iterator implements java.util.Iterator<E> {
 
         private Node<E> iterPosition;
 
-        ListIteratorKTU() {
+        Iterator() {
             iterPosition = first;
         }
 
@@ -318,7 +317,7 @@ public class LinkedList<E extends Comparable<E>>
 
         @Override
         public void remove() {
-            throw new UnsupportedOperationException("Studentams reikia realizuoti ListItr.remove()");
+            throw new UnsupportedOperationException("Studentams reikia realizuoti remove()");
         }
     }
 

@@ -7,19 +7,44 @@ package edu.ktu.ds.lab1b.lecture;
 
 import edu.ktu.ds.lab1b.util.Ks;
 import edu.ktu.ds.lab1b.util.LinkedList;
+import edu.ktu.ds.lab1b.util.Parsable;
+import java.util.InputMismatchException;
+import java.util.NoSuchElementException;
+import java.util.Scanner;
 
-public class Player implements Comparable<Player> {
+public class Player implements Parsable<Player> {
 
     private String surname;
     private int goalAttempts;
     private int goals;
 
+    public Player() {    
+    }
+    
     public Player(String surname, int goalAttempts, int goals) {
         this.surname = surname;
         this.goalAttempts = goalAttempts;
         this.goals = goals;
     }
+    
+    public Player(String data) {
+        parse(data);
+    }
 
+    @Override
+    public void parse(String data) {
+        try {
+            Scanner ed = new Scanner(data);
+            surname = ed.next();
+            goalAttempts = ed.nextInt();
+            goals = ed.nextInt();
+        } catch (InputMismatchException e) {
+            Ks.ern("Blogas duomenų formatas apie žaidėją -> " + data);
+        } catch (NoSuchElementException e) {
+            Ks.ern("Trūksta duomenų apie žaidėją -> " + data);
+        }
+    }
+    
     // ... geteriai ir seteriai 
     public double goalPercentage() {
         return goalAttempts == 0 ? 0.0 : 100.0 * goals / goalAttempts;

@@ -47,14 +47,7 @@ public class Car implements Parsable<Car> {
     }
 
     public Car(String data) {
-        this.parse(data);
-    }
-
-    @Override
-    public Car create(String data) {
-        Car a = new Car();
-        a.parse(data);
-        return a;
+        parse(data);
     }
 
     @Override
