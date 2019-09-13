@@ -1,4 +1,4 @@
-# Laboratorinis darbas Nr. 1 - Sąrašinių duomenų struktūrų kūrimas
+# Laboratorinis darbas Nr. 1b - Sąrašinių duomenų struktūrų kūrimas
 
 ## Darbo tikslai
 
