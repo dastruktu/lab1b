@@ -8,10 +8,6 @@ package edu.ktu.ds.lab1b.demo;
 import edu.ktu.ds.lab1b.util.ParsableList;
 import java.util.Random;
 
-/**
- *
- * @author giepaul
- */
 public class CarList extends ParsableList<Car> {
 
     public CarList() {

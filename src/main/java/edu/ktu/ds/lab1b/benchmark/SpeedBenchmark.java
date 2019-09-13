@@ -47,6 +47,13 @@ import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
 
+/**
+ * Greitaveikos testų įrankis:
+ * https://openjdk.java.net/projects/code-tools/jmh/
+ * 
+ * JMH naudojimo pavyzdžiai ir jų aprašymai:
+ * https://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
+ */
 public class SpeedBenchmark {
 
     @State(Scope.Benchmark)

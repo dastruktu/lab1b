@@ -10,8 +10,10 @@ import objectexplorer.MemoryMeasurer;
 import objectexplorer.ObjectGraphMeasurer;
 
 /**
- *
- * @author giepaul
+ * MemoryMeasurer klasei reikalingas JVM veikiantis ObjectExplorer javaagent'as
+ * (ObjectExplorer paketas automatiškai įdiegiamas kaip Lab1b projekto dependency).
+ * Paleidimas:
+ *   java -javaagent:path\to\object-explorer.jar -cp target\lab1b-1.0.jar edu.ktu.ds.lab1b.benchmark.MemoryUsage
  */
 public class MemoryUsage {
     public static void main(String[] args) {
