@@ -34,18 +34,13 @@ import edu.ktu.ds.lab1b.demo.Car;
 import edu.ktu.ds.lab1b.demo.CarList;
 import edu.ktu.ds.lab1b.util.Ks;
 import edu.ktu.ds.lab1b.util.LinkedList;
-import org.openjdk.jmh.annotations.Benchmark;
-import org.openjdk.jmh.annotations.BenchmarkMode;
-import org.openjdk.jmh.annotations.Level;
-import org.openjdk.jmh.annotations.Mode;
-import org.openjdk.jmh.annotations.Param;
-import org.openjdk.jmh.annotations.Scope;
-import org.openjdk.jmh.annotations.Setup;
-import org.openjdk.jmh.annotations.State;
+import org.openjdk.jmh.annotations.*;
 import org.openjdk.jmh.runner.Runner;
 import org.openjdk.jmh.runner.RunnerException;
 import org.openjdk.jmh.runner.options.Options;
 import org.openjdk.jmh.runner.options.OptionsBuilder;
+
+import java.util.concurrent.TimeUnit;
 
 /**
  * Greitaveikos testų įrankis:
@@ -54,6 +49,10 @@ import org.openjdk.jmh.runner.options.OptionsBuilder;
  * JMH naudojimo pavyzdžiai ir jų aprašymai:
  * https://hg.openjdk.java.net/code-tools/jmh/file/tip/jmh-samples/src/main/java/org/openjdk/jmh/samples/
  */
+@BenchmarkMode(Mode.AverageTime)
+@OutputTimeUnit(TimeUnit.MILLISECONDS)
+@Warmup(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
+@Measurement(iterations = 5, time = 1, timeUnit = TimeUnit.SECONDS)
 public class SpeedBenchmark {
 
     @State(Scope.Benchmark)
@@ -82,25 +81,21 @@ public class SpeedBenchmark {
     }
 
     @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
     public void defaultSort(ClonedCars cars) throws InterruptedException {
         cars.list.sortSystem();
     }
 
     @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
     public void defaultsortWithComparator(ClonedCars cars) throws InterruptedException {
         cars.list.sortSystem(Car.byPrice);
     }
 
     @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
     public void bubbleSort(ClonedCars cars) throws InterruptedException {
         cars.list.sortBuble();
     }
 
     @Benchmark
-    @BenchmarkMode(Mode.AverageTime)
     public void bubbleSortWithComparator(ClonedCars cars) throws InterruptedException {
         cars.list.sortBuble(Car.byPrice);
     }

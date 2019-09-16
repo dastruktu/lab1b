@@ -12,8 +12,8 @@
 
 1. Pateikiama atlikta individuali darbo dalis ir ataskaitos elektroninė versija;
 2. Operatyviai atliekamos dėstytojo nurodytos užduotys:
-  * modifikuoti individualią klasę;
-  * sukurti ar modifikuoti apdorojimo metodus;
+   * modifikuoti individualią klasę;
+   * sukurti ar modifikuoti apdorojimo metodus;
 3. Atsakoma į klausimus apie `edu.ktu.ds.lab1b.util` paketo klasių struktūrą ir
 metodus.
 
