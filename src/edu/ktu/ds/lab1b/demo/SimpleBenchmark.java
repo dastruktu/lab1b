@@ -17,9 +17,7 @@ import java.util.Collections;
 import java.util.Locale;
 import java.util.Random;
 
-/*
- */
-public class Benchmark {
+public class SimpleBenchmark {
 
     Car[] cars;
     LinkedList<Car> carSeries = new LinkedList<>();
@@ -55,7 +53,7 @@ public class Benchmark {
         }
     }
 
-    void simpleRun(int elementCount) {
+    void generateAndExecute(int elementCount) {
 // Paruošiamoji tyrimo dalis
         long t0 = System.nanoTime();
         generateCars(elementCount);
@@ -81,7 +79,7 @@ public class Benchmark {
                 (t4 - t3) / 1e9, (t5 - t4) / 1e9, (t6 - t5) / 1e9);
     }
 
-    void run() {
+    void execute() {
         long memTotal = Runtime.getRuntime().totalMemory();
         Ks.oun("memTotal= " + memTotal);
         // Pasižiūrime kaip generuoja automobilius (20) vienetų)
@@ -97,13 +95,13 @@ public class Benchmark {
         Ks.oun("6 - Rūšiavimas List burbuliuku su Comparator");
         Ks.ouf("%6d %7d %7d %7d %7d %7d %7d \n", 0, 1, 2, 3, 4, 5, 6);
         for (int n : counts) {
-            simpleRun(n);
+            generateAndExecute(n);
         }
     }
 
     public static void main(String[] args) {
         // suvienodiname skaičių formatus pagal LT lokalę (10-ainis kablelis)
         Locale.setDefault(new Locale("LT"));
-        new Benchmark().run();
+        new SimpleBenchmark().execute();
     }
 }
