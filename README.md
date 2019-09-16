@@ -6,7 +6,6 @@
 2. Išmokti atskirų objektų apdorojimo bendriniuose sąrašuose būdus (sukūrimas,
 įdėjimas, peržiūra, atranka), pasinaudojant duotos sąsajos metodais;
 3. Išmokti testavimo klasių kūrimo pradmenis;
-4. Sukurti bendravimo su vartotoju imitatorių eksperimentiniam tyrimui.
 
 ## Atsiskaitymas
 
@@ -21,9 +20,9 @@ metodus.
 
 ### Duota
 
-Trys paketai (`edu.ktu.ds.lab1b.benchmark`, `edu.ktu.ds.lab1b.demo`,
-`edu.ktu.ds.lab1b.util`), kuriuose yra pateiktos toliau naudojamos sisteminės
-klasės ir demo variantas laboratorinio darbo vykdymui.
+Du paketai (`edu.ktu.ds.lab1b.demo` ir `edu.ktu.ds.lab1b.util`), kuriuose yra
+pateiktos toliau naudojamos sisteminės klasės ir demo variantas laboratorinio
+darbo vykdymui.
 
 ### Reikia sukurti
 
@@ -34,9 +33,9 @@ užduotims spręsti.
 
 1. Išnagrinėti elementarios klasės `Car` struktūrą, išbandyti jos metodus;
 2. Išnagrinėti apjungiančios klasės `CarMarket` struktūrą, išbandyti jos metodus;
-3. Naudajantis klasės `CarTest` pavyzdžiu, išbandyti klasių `List` ir `ParsableList`
-metodus, ištirti sąrašo metodų sąveiką su `Parsable` tipo elementais;
-4. Išbandyti `SpeedBenchmark` klasėje realizuotą greitaveikos tyrimą.
+3. Naudajantis klasės `ManualTest` pavyzdžiu, išbandyti klasių `List` ir
+`ParsableList` metodus, ištirti sąrašo metodų sąveiką su `Parsable` tipo elementais;
+4. Išbandyti `SimpleBenchmark` klasėje realizuotą greitaveikos tyrimą.
 
 ### Individuali klasių konstravimo dalis
 
