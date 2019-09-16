@@ -12,20 +12,20 @@ import edu.ktu.ds.lab1b.util.Ks;
 import java.util.Comparator;
 import java.util.Locale;
 
-public class CarTest {
+public class ManualTest {
 
     CarList cars = new CarList();
 
-    void run() {
-        testCars();
+    void execute() {
+        createCars();
         createCarList();
-//        printList();
-//        addToList();
-//        auditMarket();
-//        checkSorting();
+//        countRenault();
+//        appendCarList();
+//        checkCarMarketFilters();
+//        checkCarMarketSorting();
     }
 
-    void testCars() {
+    void createCars() {
         Car c1 = new Car("Renault", "Laguna", 1997, 50000, 1700);
         Car c2 = new Car("Renault", "Megane", 2001, 20000, 3500);
         Car c3 = new Car("Toyota", "Corolla", 2001, 20000, 8500.8);
@@ -84,7 +84,7 @@ public class CarTest {
 //        cars.println("Po visų išmetimų");
     }
 
-    void printList() {
+    void countRenault() {
         int sk = 0;
         for (Car c : cars) {
             if (c.getMake().compareTo("Renault") == 0) {
@@ -94,7 +94,7 @@ public class CarTest {
         Ks.oun("Renault automobilių yra = " + sk);
     }
 
-    void addToList() {
+    void appendCarList() {
         for (int i = 0; i < 8; i++) {
             cars.add(new Car("Ford", "Focus",
                     2009 - i, 40000 + i * 10000, 36000 - i * 2000));
@@ -107,7 +107,7 @@ public class CarTest {
         cars.save("ban.txt");
     }
     
-    void auditMarket() {
+    void checkCarMarketFilters() {
         CarMarket market = new CarMarket();
 
         market.allCars.load("ban.txt");
@@ -136,7 +136,7 @@ public class CarTest {
     }
 
     // išbandykite veikimą, o po to pakeiskite į Lambda stiliaus komparatorius.
-    void checkSorting() {
+    void checkCarMarketSorting() {
         CarMarket market = new CarMarket();
 
         market.allCars.load("ban.txt");
@@ -174,6 +174,6 @@ public class CarTest {
     public static void main(String... args) {
         // suvienodiname skaičių formatus pagal LT lokalę (10-ainis kablelis)
         Locale.setDefault(new Locale("LT"));
-        new CarTest().run();
+        new ManualTest().execute();
     }
 }
